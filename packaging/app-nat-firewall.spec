@@ -1,7 +1,7 @@
 
 Name: app-nat-firewall
 Epoch: 1
-Version: 1.0.10
+Version: 1.1.0
 Release: 1%{dist}
 Summary: 1-to-1 NAT
 License: GPLv3
@@ -16,7 +16,7 @@ Requires: app-network
 1-to-1 NAT maps a public IP address to a private IP address allowing access to systems behind the firewall via a public IP address.  This feature requires additional public IP addresses from your Internet Service Provider (ISP).
 
 %package core
-Summary: 1-to-1 NAT - APIs and install
+Summary: 1-to-1 NAT - Core
 License: LGPLv3
 Group: ClearOS/Libraries
 Requires: app-base-core
