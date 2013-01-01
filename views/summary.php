@@ -101,9 +101,12 @@ sort($items);
 // Summary table
 ///////////////////////////////////////////////////////////////////////////////
 
+$options['default_rows'] = 50;
+
 echo summary_table(
     lang('nat_firewall_rules'),
     $anchors,
     $headers,
-    $items
+    $items,
+    $options
 );
