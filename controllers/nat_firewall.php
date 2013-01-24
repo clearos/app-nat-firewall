@@ -184,7 +184,7 @@ class Nat_Firewall extends ClearOS_Controller
         $this->lang->load('nat_firewall');
         $confirm_uri = '/app/nat_firewall/destroy/' . $wan_ip . '/' . $lan_ip . '/' . $protocol . '/' . $port . '/' . $interface;
         $cancel_uri = '/app/nat_firewall';
-        $items = array($name . ' (' . $wan_ip . ' > ' . $lan_ip . ') ' . lang('nat_firewall_on') . ' ' . $interface);
+        $items = array($name . ' (' . $wan_ip . ' > ' . $lan_ip . ') ');
 
         $this->page->view_confirm_delete($confirm_uri, $cancel_uri, $items);
     }

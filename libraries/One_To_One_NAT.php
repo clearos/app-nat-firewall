@@ -7,7 +7,7 @@
  * @package    NAT_Firewall
  * @subpackage Libraries
  * @author     ClearFoundation <developer@clearfoundation.com>
- * @copyright  2011 ClearFoundation
+ * @copyright  2011-2013 ClearFoundation
  * @license    http://www.gnu.org/copyleft/lgpl.html GNU Lesser General Public License version 3 or later
  * @link       http://www.clearfoundation.com/docs/developer/apps/nat_firewall/
  */
@@ -82,7 +82,7 @@ clearos_load_library('base/Validation_Exception');
  * @package    NAT_Firewall
  * @subpackage Libraries
  * @author     ClearFoundation <developer@clearfoundation.com>
- * @copyright  2011 ClearFoundation
+ * @copyright  2011-2013 ClearFoundation
  * @license    http://www.gnu.org/copyleft/lgpl.html GNU Lesser General Public License version 3 or later
  * @link       http://www.clearfoundation.com/docs/developer/apps/nat_firewall/
  */
@@ -94,7 +94,7 @@ class One_To_One_NAT extends Firewall
     ///////////////////////////////////////////////////////////////////////////
 
     /**
-     * One_To_One_NAT constructor.
+     * 1-to-1 NAT firewall constructor.
      */
 
     public function __construct() 
@@ -151,7 +151,7 @@ class One_To_One_NAT extends Firewall
         $rule->set_address($wan_ip);
         $rule->set_parameter($interface . '_' . $lan_ip);
 
-        $this->add_rule($rule);
+        $this->_add_rule($rule);
     }
 
     /**
@@ -209,11 +209,11 @@ class One_To_One_NAT extends Firewall
         }
         $rule->set_flags(Rule::ONE_TO_ONE);
 
-        $this->delete_rule($rule);
+        $this->_delete_rule($rule);
     }
 
     /**
-     * Delete an existing 1:1 NAT rule.
+     * Sets state of a 1:1 NAT rule.
      *
      * @param boolean $state     state of rule
      * @param string  $wan_ip    WAN IP address
@@ -265,21 +265,21 @@ class One_To_One_NAT extends Firewall
 
         $rule->set_flags(Rule::ONE_TO_ONE);
 
-        if (!($rule = $this->find_rule($rule)))
+        if (!($rule = $this->_find_rule($rule)))
             return;
 
-        $this->delete_rule($rule);
+        $this->_delete_rule($rule);
 
         if ($state)
             $rule->enable();
         else
             $rule->disable();
 
-        $this->add_rule($rule);
+        $this->_add_rule($rule);
     }
 
     /**
-     * Delete an existing 1:1 NAT port range rule.
+     * Toggles state of 1:1 NAT rule.
      *
      * @param boolean $enabled   state of rule
      * @param string  $wan_ip    WAN IP address
@@ -333,11 +333,11 @@ class One_To_One_NAT extends Firewall
 
             $rule->set_flags(Rule::ONE_TO_ONE);
 
-            if (!($rule = $this->find_rule($rule))) return;
+            if (!($rule = $this->_find_rule($rule))) return;
 
-            $this->delete_rule($rule);
+            $this->_delete_rule($rule);
             ($enabled) ? $rule->enable() : $rule->disable();
-            $this->add_rule($rule);
+            $this->_add_rule($rule);
         } catch (Exception $e) {
             throw new Engine_Exception(clearos_exception_message($e), COMMON_WARNING);
         }
@@ -356,7 +356,7 @@ class One_To_One_NAT extends Firewall
 
         $nat_list = array();
 
-        $nat_rules = $this->get_rules();
+        $nat_rules = $this->_get_rules();
 
         foreach ($nat_rules as $rule) {
             if (!($rule->get_flags() & Rule::ONE_TO_ONE))

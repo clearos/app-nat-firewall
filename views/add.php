@@ -7,7 +7,7 @@
  * @package    NAT_Firewall
  * @subpackage Views
  * @author     ClearFoundation <developer@clearfoundation.com>
- * @copyright  2011 ClearFoundation
+ * @copyright  2011-2013 ClearFoundation
  * @license    http://www.gnu.org/copyleft/gpl.html GNU General Public License version 3 or later
  * @link       http://www.clearfoundation.com/docs/developer/apps/nat_firewall/
  */
@@ -35,6 +35,7 @@
 
 $this->lang->load('base');
 $this->lang->load('firewall');
+$this->lang->load('network');
 
 ///////////////////////////////////////////////////////////////////////////////
 // Handling
@@ -60,7 +61,7 @@ echo form_open('nat_firewall/add');
 echo form_header(lang('nat_firewall_add_nat_rule'));
 
 echo field_input('nickname', $nickname, lang('firewall_nickname'));
-echo field_simple_dropdown('interface', $interfaces, $interface, lang('nat_firewall_interface'), $iface_read_only);
+echo field_simple_dropdown('interface', $interfaces, $interface, lang('network_interface'), $iface_read_only);
 echo field_input('public_ip', $public_ip, lang('nat_firewall_public_ip'));
 echo field_input('private_ip', $private_ip_address, lang('nat_firewall_private_ip'));
 echo field_checkbox('all', $all, lang('firewall_all_protocols_and_ports'));

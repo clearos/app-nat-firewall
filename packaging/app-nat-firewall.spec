@@ -1,7 +1,7 @@
 
 Name: app-nat-firewall
 Epoch: 1
-Version: 1.1.0
+Version: 1.4.15
 Release: 1%{dist}
 Summary: 1-to-1 NAT
 License: GPLv3
@@ -20,7 +20,7 @@ Summary: 1-to-1 NAT - Core
 License: LGPLv3
 Group: ClearOS/Libraries
 Requires: app-base-core
-Requires: app-firewall-core
+Requires: app-firewall-core >= 1:1.4.15
 Requires: app-network-core
 
 %description core
