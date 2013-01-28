@@ -13,7 +13,7 @@ Requires: app-base
 Requires: app-network
 
 %description
-1-to-1 NAT maps a public IP address to a private IP address allowing access to systems behind the firewall via a public IP address.  This feature requires additional public IP addresses from your Internet Service Provider (ISP).
+1-to-1 NAT maps a public IP address to a private IP address allowing access to systems behind the firewall via a public IP address.
 
 %package core
 Summary: 1-to-1 NAT - Core
@@ -24,7 +24,7 @@ Requires: app-firewall-core >= 1:1.4.15
 Requires: app-network-core
 
 %description core
-1-to-1 NAT maps a public IP address to a private IP address allowing access to systems behind the firewall via a public IP address.  This feature requires additional public IP addresses from your Internet Service Provider (ISP).
+1-to-1 NAT maps a public IP address to a private IP address allowing access to systems behind the firewall via a public IP address.
 
 This package provides the core API and libraries.
 
