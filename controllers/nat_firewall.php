@@ -86,7 +86,9 @@ class Nat_Firewall extends ClearOS_Controller
         // Load views
         //-----------
 
-        $this->page->view_form('nat_firewall/summary', $data, lang('nat_firewall_app_name'));
+        $options['type'] = MY_Page::TYPE_WIDE_CONFIGURATION;
+
+        $this->page->view_form('nat_firewall/summary', $data, lang('nat_firewall_app_name'), $options);
     }
 
     /**
