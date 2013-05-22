@@ -3,9 +3,9 @@
 /**
  * One-to-One NAT firewall class.
  *
- * @category   Apps
- * @package    NAT_Firewall
- * @subpackage Libraries
+ * @category   apps
+ * @package    nat-firewall
+ * @subpackage libraries
  * @author     ClearFoundation <developer@clearfoundation.com>
  * @copyright  2011-2013 ClearFoundation
  * @license    http://www.gnu.org/copyleft/lgpl.html GNU Lesser General Public License version 3 or later
@@ -78,9 +78,9 @@ clearos_load_library('base/Validation_Exception');
 /**
  * 1-to-1 NAT firewall class.
  *
- * @category   Apps
- * @package    NAT_Firewall
- * @subpackage Libraries
+ * @category   apps
+ * @package    nat-firewall
+ * @subpackage libraries
  * @author     ClearFoundation <developer@clearfoundation.com>
  * @copyright  2011-2013 ClearFoundation
  * @license    http://www.gnu.org/copyleft/lgpl.html GNU Lesser General Public License version 3 or later
