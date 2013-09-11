@@ -75,6 +75,7 @@ foreach ($nat_rules as $rule) {
         $rule['interface'];
 
     $item['title'] = $rule['name'];
+    $item['current_state'] = (bool)$rule['enabled'];
     $item['action'] = '/app/nat_firewall/delete/' . $key;
     $item['anchors'] = button_set(
         array(
@@ -101,7 +102,10 @@ sort($items);
 // Summary table
 ///////////////////////////////////////////////////////////////////////////////
 
-$options['default_rows'] = 50;
+$options = array (
+    'default_rows' => 50,
+    'row-enable-disable' => TRUE
+);
 
 echo summary_table(
     lang('nat_firewall_rules'),
