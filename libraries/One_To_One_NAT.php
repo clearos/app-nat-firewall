@@ -199,6 +199,9 @@ class One_To_One_NAT extends Firewall
             case 'UDP':
                 $rule->set_protocol(Firewall::PROTOCOL_UDP);
                 break;
+            default:
+                $rule->set_protocol(Firewall::PROTOCOL_ALL);
+                break;
         }
 
         if ($port) {
@@ -367,10 +370,21 @@ class One_To_One_NAT extends Firewall
             $info['name'] = $rule->get_name();
             $info['enabled'] = $rule->is_enabled();
 
-            if ($rule->get_port()) {
-                $info['protocol'] = $rule->get_protocol();
-                $info['protocol_name'] = $rule->get_protocol_name();
+            switch ($rule->get_protocol()) {
+                case Firewall::PROTOCOL_TCP:
+                    $info['protocol'] = "TCP";
+                    break;
+
+                case Firewall::PROTOCOL_UDP:
+                    $info['protocol'] = "UDP";
+                    break;
+
+                default:
+                    $info['protocol'] = Firewall::PROTOCOL_ALL;
+                    break;
             }
+
+            $info['protocol_name'] = $rule->get_protocol_name();
 
             if (strpos($rule->get_parameter(), '_') === FALSE) {
                 $interface = '';
