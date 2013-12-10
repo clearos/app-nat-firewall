@@ -64,12 +64,12 @@ $anchors = array(anchor_add('/app/nat_firewall/add'));
 foreach ($nat_rules as $rule) {
 
     // Parse out host info
-    list($lan_ip, $wan_ip, $port_start, $port_end) = split("\\|", $rule['host']);
+    list($lan_ip, $wan_ip, $protocol, $port_start, $port_end) = split("\\|", $rule['host']);
 
     $state = ($rule['enabled']) ? 'disable' : 'enable';
     $state_anchor = 'anchor_' . $state;
     $key = $rule['name'] . '/' . $wan_ip . '/' . $lan_ip .
-        '/' . ($rule['protocol'] ? $rule['protocol'] : Firewall::PROTOCOL_ALL) .
+        '/' . ($protocol ? $protocol : Firewall::PROTOCOL_ALL) .
         '/' . ($port_start ? $port_start : '0') .
         ($port_end ? ':' . $port_end : '') . '/' .
         $rule['interface'];

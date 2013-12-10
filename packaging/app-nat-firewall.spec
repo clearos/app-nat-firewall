@@ -1,7 +1,7 @@
 
 Name: app-nat-firewall
 Epoch: 1
-Version: 1.5.0
+Version: 1.5.18
 Release: 1%{dist}
 Summary: 1-to-1 NAT
 License: GPLv3
@@ -73,7 +73,6 @@ exit 0
 %files core
 %defattr(-,root,root)
 %exclude /usr/clearos/apps/nat_firewall/packaging
-%exclude /usr/clearos/apps/nat_firewall/tests
 %dir /usr/clearos/apps/nat_firewall
 /usr/clearos/apps/nat_firewall/deploy
 /usr/clearos/apps/nat_firewall/language
