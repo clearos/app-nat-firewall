@@ -64,6 +64,7 @@ class Nat_Firewall extends ClearOS_Controller
         $this->lang->load('nat_firewall');
         $this->load->library('nat_firewall/One_To_One_NAT');
         $this->load->library('network/Iface_Manager');
+        $this->load->library('network/Network');
 
         // Sanity check - make sure there is a external interface configured
         //-------------
@@ -78,6 +79,8 @@ class Nat_Firewall extends ClearOS_Controller
 
         try {
             $data['nat_rules'] = $this->one_to_one_nat->get_nat_rules();
+            $data['network_mode'] = $this->network->get_mode();
+            $data['panic'] = $this->one_to_one_nat->is_panic();
         } catch (Exception $e) {
             $this->page->view_exception($e);
             return;
