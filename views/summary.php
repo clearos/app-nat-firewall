@@ -75,6 +75,7 @@ $anchors = array(anchor_add('/app/nat_firewall/add'));
 foreach ($nat_rules as $rule) {
 
     // Parse out host info
+    // FIXME: split() is deprecated
     list($lan_ip, $wan_ip, $protocol, $port_start, $port_end) = split("\\|", $rule['host']);
 
     $state = ($rule['enabled']) ? 'disable' : 'enable';
