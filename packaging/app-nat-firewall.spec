@@ -1,7 +1,7 @@
 
 Name: app-nat-firewall
 Epoch: 1
-Version: 2.0.1
+Version: 2.0.5
 Release: 1%{dist}
 Summary: 1-to-1 NAT
 License: GPLv3
