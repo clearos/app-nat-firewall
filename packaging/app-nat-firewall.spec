@@ -1,9 +1,9 @@
 
 Name: app-nat-firewall
 Epoch: 1
-Version: 2.0.5
+Version: 2.0.14
 Release: 1%{dist}
-Summary: 1-to-1 NAT
+Summary: 1-to-1 NAT Firewall
 License: GPLv3
 Group: ClearOS/Apps
 Source: %{name}-%{version}.tar.gz
@@ -13,10 +13,10 @@ Requires: app-base
 Requires: app-network
 
 %description
-1-to-1 NAT maps a public IP address to a private IP address allowing access to systems behind the firewall via a public IP address.
+The 1-to-1 NAT Firewall app maps a public IP address to a private IP address allowing access to systems behind the firewall via a public IP address.
 
 %package core
-Summary: 1-to-1 NAT - Core
+Summary: 1-to-1 NAT Firewall - Core
 License: LGPLv3
 Group: ClearOS/Libraries
 Requires: app-base-core
@@ -24,7 +24,7 @@ Requires: app-firewall >= 1:1.5.19
 Requires: app-network-core
 
 %description core
-1-to-1 NAT maps a public IP address to a private IP address allowing access to systems behind the firewall via a public IP address.
+The 1-to-1 NAT Firewall app maps a public IP address to a private IP address allowing access to systems behind the firewall via a public IP address.
 
 This package provides the core API and libraries.
 
