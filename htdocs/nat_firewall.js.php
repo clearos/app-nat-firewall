@@ -56,8 +56,6 @@ function check_protocol_port() {
 $(document).ready(function() {
 
     if ($(location).attr('href').match('.*\/add$') != null) {
-        $('#port').css('width', '100');
-
         check_protocol_port();
         $('#all').change(function(event) {
             check_protocol_port();
