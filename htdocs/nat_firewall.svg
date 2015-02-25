@@ -1,0 +1,14 @@
+<svg version="1.1" class="clearos-svg clearfoundation app-vendor-clearfoundation app-free app-category-network app-sub-category-firewall" viewBox="0 0 400 400" preserveAspectRatio="xMinYMin" xmlns="http://www.w3.org/2000/svg" xmlns:xlink= "http://www.w3.org/1999/xlink">
+<path fill="#AA0707" d="M91.666,184.647"/>
+<path fill="#AA0707" d="M123.245,247.805"/>
+<path fill="#AA0707" d="M91.666,184.647"/>
+<path fill="#AA0707" d="M123.245,247.805"/>
+<g>
+	<path fill="#686868" d="M48.857,102.238c-16.77,13.092-32.299,21.926-46.61,26.609v49.714
+		c27.167-8.928,50.751-22.791,70.768-41.525V343.5h54.799V56.516H83.381C77.125,73.931,65.628,89.161,48.857,102.238z"/>
+	<path fill="#686868" d="M353.305,56.5c-6.256,17.431-17.762,32.661-34.547,45.738c-16.756,13.092-32.283,21.957-46.555,26.609
+		v49.714c27.096-8.928,50.703-22.791,70.729-41.525V343.5h54.791h0.029v-287H353.305z"/>
+	<rect x="174.337" y="149.028" fill="#686868" width="51.309" height="51.317"/>
+	<rect x="174.337" y="228.637" fill="#686868" width="51.309" height="51.317"/>
+</g>
+</svg>
