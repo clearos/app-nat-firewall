@@ -1,0 +1,4 @@
+#!/bin/sh
+
+logger -p local6.notice -t installer "app-nat-firewall-core - removing 1:1 NAT rules on un-install"
+/usr/clearos/apps/nat_firewall/deploy/remove-nat-rules

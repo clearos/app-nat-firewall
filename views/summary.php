@@ -78,9 +78,18 @@ foreach ($nat_rules as $rule) {
     $rule_items = preg_split('/\|/', $rule['host']);
     $lan_ip = $rule_items[0];
     $wan_ip = $rule_items[1];
-    $protocol = $rule_items[2];
-    $port_start = $rule_items[3];
-    $port_end = $rule_items[4];
+    if (count($rule_items) > 2)
+        $protocol = $rule_items[2];
+    else
+        $protocol = FALSE;
+    if (count($rule_items) > 3)
+        $port_start = $rule_items[3];
+    else
+        $port_start = FALSE;
+    if (count($rule_items) > 4)
+        $port_end = $rule_items[4];
+    else
+        $port_end = FALSE;
 
     $state = ($rule['enabled']) ? 'disable' : 'enable';
     $state_anchor = 'anchor_' . $state;
@@ -120,6 +129,8 @@ sort($items);
 
 $options = array (
     'default_rows' => 50,
+    'id' => 'summary_rule',
+    'responsive' => array(3 => 'none', 4 => 'none'),
     'row-enable-disable' => TRUE
 );
 

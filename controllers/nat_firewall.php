@@ -89,9 +89,7 @@ class Nat_Firewall extends ClearOS_Controller
         // Load views
         //-----------
 
-        $options['type'] = MY_Page::TYPE_WIDE_CONFIGURATION;
-
-        $this->page->view_form('nat_firewall/summary', $data, lang('nat_firewall_app_name'), $options);
+        $this->page->view_form('nat_firewall/summary', $data, lang('nat_firewall_app_name'));
     }
 
     /**
@@ -117,7 +115,7 @@ class Nat_Firewall extends ClearOS_Controller
         $this->form_validation->set_policy('private_ip', 'nat_firewall/One_To_One_NAT', 'validate_ip', TRUE);
         $this->form_validation->set_policy('public_ip', 'nat_firewall/One_To_One_NAT', 'validate_ip', TRUE);
 
-        if ($this->input->post('all') != 'on') {
+        if (!$this->input->post('all')) {
             $this->form_validation->set_policy('protocol', 'nat_firewall/One_To_One_NAT', 'validate_protocol', TRUE);
             $this->form_validation->set_policy('port', 'nat_firewall/One_To_One_NAT', 'validate_port');
         }
@@ -129,7 +127,7 @@ class Nat_Firewall extends ClearOS_Controller
 
         if (($this->input->post('submit') && $form_ok)) {
             try {
-                if ($this->input->post('all') == 'on') {
+                if ($this->input->post('all')) {
                     $protocol = One_To_One_NAT::PROTOCOL_ALL;
                     $port = One_To_One_NAT::CONSTANT_ALL_PORTS;
                 } else {

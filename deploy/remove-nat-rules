@@ -1,0 +1,100 @@
+#!/usr/clearos/sandbox/usr/bin/php
+<?php
+
+/**
+ * Remove all NAT rules.
+ *
+ * @category   apps
+ * @package    nat_firewall
+ * @subpackage scripts
+ * @author     ClearFoundation <developer@clearfoundation.com>
+ * @copyright  2015 ClearFoundation
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU General Public License version 3 or later
+ * @link       http://www.clearfoundation.com/docs/developer/apps/nat_firewall/
+ */
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+//
+///////////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////////
+// N A M E S P A C E
+///////////////////////////////////////////////////////////////////////////////
+
+namespace clearos\apps\nat_firewall;
+
+///////////////////////////////////////////////////////////////////////////////
+// B O O T S T R A P
+///////////////////////////////////////////////////////////////////////////////
+
+$bootstrap = getenv('CLEAROS_BOOTSTRAP') ? getenv('CLEAROS_BOOTSTRAP') : '/usr/clearos/framework/shared';
+require_once $bootstrap . '/bootstrap.php';
+
+///////////////////////////////////////////////////////////////////////////////
+// T R A N S L A T I O N S
+///////////////////////////////////////////////////////////////////////////////
+
+clearos_load_language('nat_firewall');
+
+///////////////////////////////////////////////////////////////////////////////
+// D E P E N D E N C I E S
+///////////////////////////////////////////////////////////////////////////////
+
+// Classes
+//--------
+
+use \clearos\apps\nat_firewall\One_To_One_NAT as One_To_One_NAT;
+
+clearos_load_library('nat_firewall/One_To_One_NAT');
+
+// Exceptions
+//-----------
+
+use \Exception as Exception;
+
+///////////////////////////////////////////////////////////////////////////////
+// M A I N
+///////////////////////////////////////////////////////////////////////////////
+
+$nat_firewall = new One_To_One_NAT();
+
+try {
+    $rules = $nat_firewall->get_nat_rules();
+    foreach ($rules as $rule) {
+        $rule_items = preg_split('/\|/', $rule['host']);
+        $lan_ip = $rule_items[0];
+        $wan_ip = $rule_items[1];
+        if (count($rule_items) > 2)
+            $protocol = $rule_items[2];
+        else
+            $protocol = $rule['protocol'];
+        if (count($rule_items) > 3)
+            $port_start = $rule_items[3];
+        else
+            $port_start = FALSE;
+        if (count($rule_items) > 4)
+            $port_end = $rule_items[4];
+        else
+            $port_end = FALSE;
+        $port = ($port_start ? $port_start : '0') . ($port_end ? ':' . $port_end : '');
+        $nat_firewall->delete($wan_ip, $lan_ip, $protocol, $port, $rule['interface']);
+    }
+} catch (Exception $e) {
+    echo clearos_exception_message($e) . "\n";
+    clearos_log('nat_firewall', clearos_exception_message($e));
+}
+
+// vim: syntax=php ts=4
