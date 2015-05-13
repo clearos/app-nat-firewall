@@ -171,7 +171,6 @@ class One_To_One_NAT extends Firewall
     {
         clearos_profile(__METHOD__, __LINE__);
 
-echo "HERE " . Firewall::PROTOCOL_ALL . "\n";
         Validation_Exception::is_valid($this->validate_ip($wan_ip));
         Validation_Exception::is_valid($this->validate_ip($lan_ip));
         Validation_Exception::is_valid($this->validate_protocol($protocol));
