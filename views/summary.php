@@ -38,6 +38,7 @@ use \clearos\apps\network\Network as Network;
 
 $this->lang->load('nat_firewall');
 $this->lang->load('firewall');
+$this->lang->load('network');
 
 ///////////////////////////////////////////////////////////////////////////////
 // Warnings
@@ -57,6 +58,7 @@ $headers = array(
     lang('firewall_nickname'),
     lang('nat_firewall_lan_ip'),
     lang('nat_firewall_wan_ip'),
+    lang('network_interface'),
     lang('firewall_protocol'),
     lang('firewall_port')
 );
@@ -114,6 +116,7 @@ foreach ($nat_rules as $rule) {
         $rule['name'],
         $lan_ip,
         $wan_ip,
+        $rule['interface'],
         (!$rule['protocol'] ? lang('base_all') : $rule['protocol_name']),
         ($port_start == Firewall::CONSTANT_ALL_PORTS ? lang('base_all') : $port_start) . ($port_end ? ':' . $port_end : '')
     );
@@ -130,7 +133,7 @@ sort($items);
 $options = array (
     'default_rows' => 50,
     'id' => 'summary_rule',
-    'responsive' => array(3 => 'none', 4 => 'none'),
+    'responsive' => array(3 => 'none', 4 => 'none', 5 => 'none'),
     'row-enable-disable' => TRUE
 );
 
