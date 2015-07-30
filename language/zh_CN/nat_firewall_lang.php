@@ -3,8 +3,8 @@
 // http://www.clearfoundation.com/docs/developer/translations/
 
 $lang['nat_firewall_add_nat_rule'] = 'Add 1-to-1 NAT Rule';
-$lang['nat_firewall_app_description'] = '1-to-1 NAT maps a public IP address to a private IP address allowing access to systems behind the firewall via a public IP address.';
-$lang['nat_firewall_app_name'] = '1-to-1 NAT';
+$lang['nat_firewall_app_description'] = 'The 1-to-1 NAT Firewall app maps a public IP address to a private IP address allowing access to systems behind the firewall via a public IP address.';
+$lang['nat_firewall_app_name'] = '1-to-1 NAT Firewall';
 $lang['nat_firewall_lan_ip'] = 'LAN IP';
 $lang['nat_firewall_no_external_nic'] = '1-to-1 NAT requires at least one externally configured network interface.';
 $lang['nat_firewall_port_or_port_range'] = 'Port or Port Range';

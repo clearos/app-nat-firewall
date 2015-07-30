@@ -3,8 +3,8 @@
 // http://www.clearfoundation.com/docs/developer/translations/
 
 $lang['nat_firewall_add_nat_rule'] = 'Lägg till 1-till-1 NAT-regel';
-$lang['nat_firewall_app_description'] = '1-till-1 NAT knyter en IP-adress till en privat IP-adress som tillåter åtkomst till system bakom en brandvägg via en publik IP-adress.';
-$lang['nat_firewall_app_name'] = '1-till-1 NAT';
+$lang['nat_firewall_app_description'] = 'The 1-to-1 NAT Firewall app maps a public IP address to a private IP address allowing access to systems behind the firewall via a public IP address.';
+$lang['nat_firewall_app_name'] = '1-to-1 NAT Firewall';
 $lang['nat_firewall_lan_ip'] = 'LAN IP';
 $lang['nat_firewall_no_external_nic'] = '1-till-1 NAT kräver minst ett nätverkskort som konfigurerats för extern anslutning. ';
 $lang['nat_firewall_port_or_port_range'] = 'Port eller Portområde';
