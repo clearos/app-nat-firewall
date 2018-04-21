@@ -5,8 +5,7 @@
 /////////////////////////////////////////////////////////////////////////////
 
 $app['basename'] = 'nat_firewall';
-$app['version'] = '2.1.6';
-$app['release'] = '1';
+$app['version'] = '2.5.0';
 $app['vendor'] = 'ClearFoundation';
 $app['packager'] = 'ClearFoundation';
 $app['license'] = 'GPLv3';
@@ -33,11 +32,12 @@ $app['controllers']['nat_firewall']['title'] = lang('nat_firewall_app_name');
 /////////////////////////////////////////////////////////////////////////////
 
 $app['requires'] = array(
+    'app-firewall',
     'app-network',
 );
 
 $app['core_requires'] = array(
-    'app-firewall >= 1:1.5.19',
+    'app-firewall-core >= 1:1.5.19',
     'app-network-core',
 );
 

@@ -1,26 +1,29 @@
 
 Name: app-nat-firewall
 Epoch: 1
-Version: 2.1.6
+Version: 2.5.0
 Release: 1%{dist}
 Summary: 1-to-1 NAT Firewall
 License: GPLv3
-Group: ClearOS/Apps
+Group: Applications/Apps
+Packager: ClearFoundation
+Vendor: ClearFoundation
 Source: %{name}-%{version}.tar.gz
 Buildarch: noarch
 Requires: %{name}-core = 1:%{version}-%{release}
 Requires: app-base
+Requires: app-firewall
 Requires: app-network
 
 %description
 The 1-to-1 NAT Firewall app maps a public IP address to a private IP address allowing access to systems behind the firewall via a public IP address.
 
 %package core
-Summary: 1-to-1 NAT Firewall - Core
+Summary: 1-to-1 NAT Firewall - API
 License: LGPLv3
-Group: ClearOS/Libraries
+Group: Applications/API
 Requires: app-base-core
-Requires: app-firewall >= 1:1.5.19
+Requires: app-firewall-core >= 1:1.5.19
 Requires: app-network-core
 
 %description core
@@ -73,6 +76,7 @@ exit 0
 %files core
 %defattr(-,root,root)
 %exclude /usr/clearos/apps/nat_firewall/packaging
+%exclude /usr/clearos/apps/nat_firewall/unify.json
 %dir /usr/clearos/apps/nat_firewall
 /usr/clearos/apps/nat_firewall/deploy
 /usr/clearos/apps/nat_firewall/language
